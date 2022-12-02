@@ -23,10 +23,13 @@ public class FileWrite {
     }
 
     /* Method which generates random numbers upto the given limit */
-    public static int[] generateRandomUnsortedData(int limit) {
+    public static int[] generateRandomUnsortedData(int noOfRecords, int randomMaxBound) {
         Random randomValue = new Random();
-        return IntStream.generate(() -> randomValue.nextInt(limit))
-                .limit(limit)
+        return Constant.includeDuplicates ? IntStream.generate(() -> randomValue.nextInt(randomMaxBound))
+                .limit(noOfRecords)
+                .toArray() :
+                IntStream.generate(() -> randomValue.nextInt(randomMaxBound))
+                .limit(noOfRecords)
                 .distinct()
                 .toArray();
     }

@@ -15,8 +15,9 @@ public class Application {
     public static void main(String[] args) throws IOException {
         long startTimeGenerate = System.currentTimeMillis();;
         int limit = Constant.RANDOM_NUMBERS_LIMIT;
+        int maxNumbersBound = Constant.MAX_NUMBERS_BOUND;
         System.out.println("Generating millions of records started");
-        writeIntoFile(UNSORTED_FILE_NAME, generateRandomUnsortedData(limit));
+        writeIntoFile(UNSORTED_FILE_NAME, generateRandomUnsortedData(limit,maxNumbersBound));
         System.out.println("Writing millions of records completed");
         long endTimeGenerate = System.currentTimeMillis();;
         System.out.println("Total time taken to generate the file with random numbers: (in secs) "+((endTimeGenerate - startTimeGenerate)/ 1000F));
